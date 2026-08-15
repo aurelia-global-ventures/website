@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurélia Global Ventures</title>
+<link rel="icon" type="image/png" href="aurelia-logo.png">
+<meta name="theme-color" content="#0b0b0b">
+<meta name="description" content="Aurélia Global Ventures — luxury lifestyle, strategic investments, brand development, and global partnerships.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0b0b0b;--black2:#141414;--ivory:#f4f0e8;--muted:#b9b2a5;--gold:#c8a96b;--line:rgba(200,169,107,.35);--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,sans-serif;background:var(--black);color:var(--ivory);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,calc(100% - 48px));margin:auto}
+.nav{position:fixed;z-index:50;top:0;left:0;right:0;padding:24px 0;transition:.35s;background:linear-gradient(180deg,rgba(0,0,0,.65),transparent)}
+.nav.scrolled{background:rgba(11,11,11,.94);backdrop-filter:blur(14px);padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{font-family:"Cormorant Garamond",serif;line-height:.82;letter-spacing:.08em;font-weight:600}
+.logo img{display:block;width:92px;height:92px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 4px 12px rgba(200,169,107,.18))}
+.logo strong{font-size:25px;display:block}
+.logo span{font-family:Inter,sans-serif;font-size:8px;letter-spacing:.34em;color:var(--gold);margin-left:2px}
+.links{display:flex;gap:27px;align-items:center;font-size:10px;letter-spacing:.17em;text-transform:uppercase}
+.links a{opacity:.86;transition:.2s}.links a:hover{color:var(--gold)}
+.contact-btn{border:1px solid var(--gold);padding:10px 16px;color:var(--ivory)!important}
+.menu{display:none;background:none;border:0;color:var(--ivory);font-size:24px}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:
+linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.58) 48%,rgba(0,0,0,.35) 100%),
+linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.78)),
+url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=85") center/cover}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:180px;background:linear-gradient(transparent,var(--black));pointer-events:none}
+.hero-content{position:relative;z-index:2;padding-top:80px;max-width:850px}
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:500;line-height:.98}
+h1{font-size:clamp(60px,9vw,118px);letter-spacing:-.025em}
+.hero-sub{font-family:"Cormorant Garamond",serif;font-size:clamp(22px,3vw,34px);margin:25px 0 16px;max-width:800px}
+.hero-copy{max-width:650px;color:#d0cbc1;font-size:14px}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;padding:14px 22px;border:1px solid var(--gold);font-size:10px;letter-spacing:.18em;text-transform:uppercase;transition:.25s}
+.btn.primary{background:var(--gold);color:var(--black)}
+.btn:hover{transform:translateY(-2px);background:transparent;color:var(--ivory)}
+.btn.primary:hover{color:var(--ivory)}
+.scroll{position:absolute;bottom:30px;left:24px;z-index:3;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.section{padding:120px 0}
+.ivory{background:var(--ivory);color:var(--black)}
+.section-head{margin-bottom:55px}
+.section-head .eyebrow{margin-bottom:13px}
+.section-title{font-size:clamp(48px,6vw,82px)}
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+.about-copy{font-size:16px;max-width:620px;color:#3e3b36}
+.about-copy p+p{margin-top:22px}
+.about-image{min-height:540px;background:url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85") center/cover}
+.highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:55px;border-top:1px solid rgba(11,11,11,.2);padding-top:28px}
+.highlight b{font-family:"Cormorant Garamond";font-size:38px;font-weight:500;display:block}
+.highlight small{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.dark-section{background:var(--black)}
+.expertise{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+.expertise article{background:var(--black);padding:48px;min-height:280px;transition:.35s}
+.expertise article:hover{background:#151515}
+.num{color:var(--gold);font-size:11px;letter-spacing:.2em}
+.card-title{font-size:39px;margin:30px 0 14px}
+.card-copy{color:var(--muted);font-size:13px;max-width:430px}
+.ventures{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.venture{min-height:360px;padding:45px;position:relative;overflow:hidden;background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:flex-end}
+.venture:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 15%,rgba(0,0,0,.9))}
+.venture>*{position:relative;z-index:1}
+.v1{background-image:url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80")}
+.v2{background-image:url("https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=1200&q=80")}
+.v3{background-image:url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80")}
+.v4{background-image:url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80")}
+.venture h3{font-size:45px;margin:12px 0 8px}.venture p{color:#ddd;font-size:13px;max-width:500px}
+.partnership{background:#0e0e0e}
+.partner-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.partner{padding:38px 24px;border-right:1px solid var(--line)}.partner:last-child{border-right:0}
+.partner h3{font-size:28px;margin:18px 0 10px}.partner p{font-size:12px;color:var(--muted)}
+.leader-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.leader-img{min-height:620px;background:url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85") center/cover;filter:grayscale(15%)}
+.leader-copy p{color:#c7c0b4;font-size:14px;margin-bottom:20px;max-width:560px}
+.focus{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:30px 0}.focus div{border-top:1px solid var(--line);padding:15px 0;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.quote{font-family:"Cormorant Garamond";font-size:35px;color:var(--gold);margin-top:35px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px}
+.contact-copy p{color:var(--muted);max-width:500px;margin-top:20px}
+.contact-items{margin-top:40px}.contact-item{padding:20px 0;border-top:1px solid var(--line)}.contact-item strong{display:block;font-size:10px;letter-spacing:.2em;color:var(--gold);margin-bottom:6px}
+form{display:grid;gap:15px}input,textarea,select{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(244,240,232,.25);padding:15px 4px;color:var(--ivory);font:13px Inter,sans-serif;outline:0}textarea{min-height:120px;resize:vertical}input:focus,textarea:focus{border-color:var(--gold)}::placeholder{color:#777}
+footer{padding:55px 0 25px;border-top:1px solid rgba(255,255,255,.1)}
+.footer-top{display:flex;justify-content:space-between;gap:30px;align-items:flex-start}.footer-links{display:flex;gap:22px;flex-wrap:wrap;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.footer-bottom{display:flex;justify-content:space-between;margin-top:55px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);font-size:9px;color:#777}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}.reveal.show{opacity:1;transform:none}
+@media(max-width:900px){.links{display:none}.menu{display:block}.links.open{display:flex;position:absolute;top:78px;left:24px;right:24px;flex-direction:column;align-items:flex-start;padding:24px;background:rgba(11,11,11,.98);border:1px solid rgba(255,255,255,.08)}.about-grid,.leader-grid,.contact-grid{grid-template-columns:1fr;gap:45px}.about-image{min-height:420px}.partner-grid{grid-template-columns:1fr 1fr}.partner:nth-child(2){border-right:0}.partner:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media(max-width:620px){.container{width:min(100% - 32px,1180px)}.section{padding:85px 0}.hero{background-position:62% center}.hero-content{padding-top:60px}.hero-copy{font-size:13px}.expertise,.ventures{grid-template-columns:1fr}.expertise article{min-height:240px;padding:32px}.venture{min-height:300px;padding:30px}.partner-grid{grid-template-columns:1fr}.partner{border-right:0!important;border-bottom:1px solid var(--line)}.partner:last-child{border-bottom:0}.highlights{grid-template-columns:1fr}.leader-img{min-height:450px}.focus{grid-template-columns:1fr}.footer-top,.footer-bottom{flex-direction:column}.logo strong{font-size:22px}.logo img{width:70px;height:70px}.links.open{top:70px}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+<div class="container nav-inner">
+<a class="logo" href="#home" aria-label="Aurélia Global Ventures"><img src="aurelia-logo.png" alt="Aurélia Global Ventures logo"></a>
+<button class="menu" id="menu" aria-label="Open menu">☰</button>
+<nav class="links" id="links">
+<a href="#about">About</a><a href="#expertise">Expertise</a><a href="#ventures">Ventures</a><a href="#partnerships">Partnerships</a><a href="#leadership">Leadership</a><a class="contact-btn" href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="container hero-content reveal">
+<div class="eyebrow">Luxury Lifestyle • Strategic Investments • Brand Development • Global Partnerships</div>
+<h1>Aurélia Global Ventures</h1>
+<div class="hero-sub">Leading an international business focused on luxury lifestyle, strategic investments, brand development, and global partnerships.</div>
+<p class="hero-copy">Since 2014, we have built an international business focused on strategy, client relations, leadership, and long-term business growth across global markets.</p>
+<div class="actions"><a class="btn primary" href="#ventures">Explore Our Ventures</a><a class="btn" href="https://wa.me/14794928083?text=Hello%20Aur%C3%A9lia%20Global%20Ventures%2C%20I%27d%20like%20to%20connect." target="_blank" rel="noopener">WhatsApp 1</a><a class="btn" href="https://wa.me/15302019264?text=Hello%20Aur%C3%A9lia%20Global%20Ventures%2C%20I%27d%20like%20to%20connect." target="_blank" rel="noopener">WhatsApp 2</a><a class="btn" href="mailto:aaradhanaravichandran2@gmail.com">Email Us</a></div>
+</div><div class="scroll">Scroll to explore ↓</div>
+</section>
+
+<section class="section ivory" id="about"><div class="container">
+<div class="about-grid reveal"><div><div class="eyebrow">Global Business • Strategy • Growth</div><h2 class="section-title">About<br>Aurélia</h2></div>
+<div class="about-copy"><p>Aurélia Global Ventures is an international business focused on luxury lifestyle, strategic investments, brand development, and global partnerships.</p><p>Since 2014, we have built an international business focused on strategy, client relations, leadership, and long-term business growth across global markets.</p><div class="highlights"><div class="highlight"><b>2014</b><small>Business Journey Began</small></div><div class="highlight"><b>02</b><small>Strategic Approach</small></div><div class="highlight"><b>03</b><small>Global Relationships</small></div></div></div></div>
+</div></section>
+
+<section class="section dark-section" id="expertise"><div class="container">
+<div class="section-head reveal"><div class="eyebrow">What We Do</div><h2 class="section-title">Our Expertise</h2></div>
+<div class="expertise reveal">
+<article><span class="num">01</span><h3 class="card-title">Luxury Lifestyle</h3><p class="card-copy">Developing and exploring opportunities within premium and luxury lifestyle markets.</p></article>
+<article><span class="num">02</span><h3 class="card-title">Strategic Investments</h3><p class="card-copy">Identifying strategic opportunities with a long-term perspective and focus on sustainable growth.</p></article>
+<article><span class="num">03</span><h3 class="card-title">Brand Development</h3><p class="card-copy">Developing, positioning, and expanding distinctive brands through strategic direction.</p></article>
+<article><span class="num">04</span><h3 class="card-title">Global Partnerships</h3><p class="card-copy">Building meaningful relationships with businesses, brands, investors, and strategic partners.</p></article>
+<article><span class="num">05</span><h3 class="card-title">Business Strategy</h3><p class="card-copy">Strategic direction focused on business development, market opportunities, and long-term growth.</p></article>
+<article><span class="num">06</span><h3 class="card-title">Client Relations</h3><p class="card-copy">Building trusted professional relationships through communication and a long-term partnership mindset.</p></article>
+</div></div></section>
+
+<section class="section dark-section" id="ventures"><div class="container">
+<div class="section-head reveal"><div class="eyebrow">Global Opportunities • Strategic Growth</div><h2 class="section-title">Global Ventures</h2></div>
+<div class="ventures reveal">
+<article class="venture v1"><span class="num">01</span><h3>Luxury & Lifestyle</h3><p>Premium brands, experiences, and opportunities within the global luxury market.</p></article>
+<article class="venture v2"><span class="num">02</span><h3>Strategic Opportunities</h3><p>Identifying businesses and opportunities with potential for sustainable growth.</p></article>
+<article class="venture v3"><span class="num">03</span><h3>Brand & Market Development</h3><p>Supporting brands through strategic positioning and international expansion.</p></article>
+<article class="venture v4"><span class="num">04</span><h3>International Partnerships</h3><p>Connecting businesses, brands, investors, and strategic partners across markets.</p></article>
+</div></div></section>
+
+<section class="section partnership" id="partnerships"><div class="container">
+<div class="section-head reveal"><div class="eyebrow">Relationships • Collaboration • Growth</div><h2 class="section-title">Partnerships</h2><p style="color:var(--muted);max-width:620px;margin-top:18px">We believe meaningful growth begins with the right relationships.</p></div>
+<div class="partner-grid reveal">
+<div class="partner"><span class="num">01</span><h3>Brands</h3><p>Strategic opportunities for luxury and lifestyle brands seeking growth and international exposure.</p></div>
+<div class="partner"><span class="num">02</span><h3>Investors</h3><p>Exploring strategic business opportunities and long-term value creation.</p></div>
+<div class="partner"><span class="num">03</span><h3>Entrepreneurs</h3><p>Connecting with ambitious founders and business leaders pursuing new opportunities.</p></div>
+<div class="partner"><span class="num">04</span><h3>Strategic Partners</h3><p>Developing trusted relationships with businesses and professionals across global markets.</p></div>
+</div>
+<div style="margin-top:40px"><a class="btn" href="#contact">Start a Conversation →</a></div>
+</div></section>
+
+<section class="section dark-section" id="leadership"><div class="container">
+<div class="leader-grid reveal"><div class="leader-img"></div><div class="leader-copy"><div class="eyebrow">Strategy • Relationships • Long-Term Growth</div><h2 class="section-title">Leadership With a Global Perspective</h2><p style="margin-top:28px">Aurélia Global Ventures is driven by a business-focused approach built around international experience, strategic thinking, strong relationships, and long-term growth.</p><p>Our leadership approach focuses on identifying opportunities, developing strategic relationships, and creating sustainable business growth.</p><div class="focus"><div>Business Strategy</div><div>International Growth</div><div>Client Relations</div><div>Strategic Partnerships</div></div><div class="quote">“Think globally. Build strategically. Grow with purpose.”</div><div style="margin-top:28px"><div class="eyebrow" style="margin-bottom:5px">Founder & Managing Director</div><div style="font-family:Cormorant Garamond,serif;font-size:30px">Ravichandran</div><div style="margin-top:18px"><div class="eyebrow" style="margin-bottom:5px">Chief Executive Officer</div><div style="font-family:Cormorant Garamond,serif;font-size:30px">Aaradhana</div></div></div></div></div>
+</div></section>
+
+<section class="section dark-section" id="contact"><div class="container">
+<div class="contact-grid reveal"><div class="contact-copy"><div class="eyebrow">United States • International</div><h2 class="section-title">Let's<br>Connect</h2><p>Meaningful opportunities begin with meaningful conversations.</p><div class="contact-items"><div class="contact-item"><strong>Phone / WhatsApp 01</strong><a href="https://wa.me/14794928083?text=Hello%20Aur%C3%A9lia%20Global%20Ventures%2C%20I%27d%20like%20to%20connect." target="_blank" rel="noopener">+1 479 492 8083</a></div>
+<div class="contact-item"><strong>Phone / WhatsApp 02</strong><a href="https://wa.me/15302019264?text=Hello%20Aur%C3%A9lia%20Global%20Ventures%2C%20I%27d%20like%20to%20connect." target="_blank" rel="noopener">+1 530 201 9264</a></div>
+<div class="contact-item"><strong>Email</strong><a href="mailto:aaradhanaravichandran2@gmail.com">aaradhanaravichandran2@gmail.com</a></div><div class="contact-item"><strong>Office</strong><span>450 N St, Sacramento, CA 95814, USA</span></div><div class="contact-item"><strong>Business Inquiries</strong>Business opportunities, partnerships, collaborations, and general enquiries.</div><div class="contact-item"><strong>Strategic Partnerships</strong>Interested in working with Aurélia Global Ventures? Start a conversation.</div><div class="contact-item"><strong>Private & Confidential Enquiries</strong>For selected opportunities and confidential business discussions.</div></div></div>
+<a class="btn primary" style="margin-bottom:24px" href="https://wa.me/15302019264?text=Hello%20Aur%C3%A9lia%20Global%20Ventures%2C%20I%27d%20like%20to%20connect." target="_blank" rel="noopener">Chat on WhatsApp →</a><form onsubmit="event.preventDefault(); const f=this; const subject=encodeURIComponent(f.querySelector('[name=subject]').value||'Business Inquiry - Aurélia Global Ventures'); const body=encodeURIComponent('Name: '+f.querySelector('[name=name]').value+'\nCompany: '+f.querySelector('[name=company]').value+'\nEmail: '+f.querySelector('[name=email]').value+'\nPhone: '+f.querySelector('[name=phone]').value+'\n\n'+f.querySelector('[name=message]').value); window.location.href='mailto:aaradhanaravichandran2@gmail.com?subject='+subject+'&body='+body;">
+<input name="name" required placeholder="FULL NAME"><input name="company" placeholder="COMPANY / ORGANIZATION"><input name="email" required type="email" placeholder="EMAIL ADDRESS"><input name="phone" placeholder="PHONE NUMBER"><input name="subject" placeholder="SUBJECT"><textarea name="message" required placeholder="YOUR MESSAGE"></textarea><button class="btn primary" type="submit">Send Inquiry →</button>
+</form></div></div></section>
+</main>
+
+<footer><div class="container">
+<div class="footer-top"><a class="logo" href="#home" aria-label="Aurélia Global Ventures"><img src="aurelia-logo.png" alt="Aurélia Global Ventures logo"></a><nav class="footer-links"><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#ventures">Ventures</a><a href="#partnerships">Partnerships</a><a href="#leadership">Leadership</a><a href="#contact">Contact</a></nav></div>
+<div class="footer-bottom"><span>450 N St, Sacramento, CA 95814, USA · <a href="https://wa.me/14794928083?text=Hello%20Aur%C3%A9lia%20Global%20Ventures%2C%20I%27d%20like%20to%20connect." target="_blank" rel="noopener">+1 479 492 8083</a> · <a href="https://wa.me/15302019264?text=Hello%20Aur%C3%A9lia%20Global%20Ventures%2C%20I%27d%20like%20to%20connect." target="_blank" rel="noopener">+1 530 201 9264</a> · <a href="mailto:aaradhanaravichandran2@gmail.com">Email</a></span><span>© 2026 Aurélia Global Ventures. All Rights Reserved.</span></div>
+</div></footer>
+
+<script>
+const nav=document.getElementById('nav'), menu=document.getElementById('menu'), links=document.getElementById('links');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+menu.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
